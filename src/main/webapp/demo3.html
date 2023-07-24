@@ -4,23 +4,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<style type="text/css">
+	div {border: 1px solid black;
+		 padding: 10px;
+		 margin: 10px;
+		 }
+</style>
 </head>
 <body>
 	<h1>선택자 연습</h1>
 	
-	<div>
+	<div id="box-1">
 		<p>연습11111입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습12222입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습13333입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습14444입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 	</div>
-	<div>
+	<div id="box-2">
 		<p>연습21111입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습22222입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습23333입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습24444입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 	</div>
-	<div>
+	<div id="box-3">
 		<p>연습입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습31111입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
 		<p>연습32222입니다. 연습1입니다. 연습1입니다. 연습1입니다. </p>
@@ -28,9 +34,21 @@
 	</div>
 <script type="text/javascript">
 $(function() {
-	$('p:first').css('color', 'red');
-	$('p:first-child').css('background-color', 'lightgreen');
-	$('p:nth-child(2)').css('background-color', 'yellow');
+	// box-1의 첫번째 p의 색을 변경하자
+	$('#box-1 p:first').css('color', 'red');
+	
+	// p:first-child 모든 첫째 p엘리먼트 선택
+	$('#box-1 p:first-child').css('color', 'red');
+	
+	// p:nth-child(1) 모든 첫번째 p엘리먼트 선택
+	$('#box-1 p:nth-child(1)').css('color', 'red');
+
+	// p:eq(0) 인덱스 번호로 첫번째 p엘리먼트 선택
+	$('#box-1 p:eq(0)').css('color', 'red');
+	
+	// box-2의 두번째 p의 색을 변경하자
+	
+	// box-3의 맨 마지막번째 p의 내용을 바꾸자
 })
 </script>
 </body>
