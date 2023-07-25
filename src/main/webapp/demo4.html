@@ -9,7 +9,7 @@
 <body>
    <h1>Welcome to My Homepage</h1>
    <div class="intro">
-      <p>My name is Donald <span id="Lastname">Duck</span></p>
+      <p><span id="Lastname">My name is Donald Duck</span></p>
       <p id="my-Address">I live in Duckburg</p>
       <p id="friends">I have many friends:</p>
       <p id="friends">I have many friends:</p>
@@ -38,18 +38,14 @@
    
 <script type="text/javascript">
 $(function() {
-	// 태그명으로 선택하기
-	$("h1").css("color", "red");
-	$("p").css("color", "lightgreen");	// 묵시적 반복처치, 모든 p엘리먼트 검색해서 컨텐츠 색을 변경
+	// 'Duck' 텍스트를 포함하고 있는 p엘리먼트를 찾아서 배경색 바꾸기
+	$("p:contains('Duck')").css("background-color", "yellow");
 	
-	// 아이디로 선택하기
-	$("#my-Address").css("border", "2px solid red");
+	// span태그를 포함하고 있는 p엘리먼트를 찾아서 배경색을 바꾸기
+	$("p:has(span)").css("background-color", "lightgray");
 	
-	// 클래스로 선택하기
-	$(".friends").css("background-color", "lightgray");
-	
-	// 태그 여러개 선택
-	$("h1, h2, h3").css("border", "2px solid blue");
+	// p중에서 span태그를 포함하고 있지 않은 p엘리먼트를 찾아서 배경색을 바꾸기
+	$("p:not(:has(span))").css("background-color", "green");
 })
 </script>
 </body>
