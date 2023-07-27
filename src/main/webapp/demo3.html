@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+</head>
+<body>
+	<h1>이벤트 연습</h1>
+	
+	<form method="post" action="register">
+		<div>
+			<label>이름</label> <br/>
+			<input type="text" name="name">	
+		</div>
+		<div> 
+			<label>경력사항</label> <button id="btn-add-field" type="button">추가</button><br>
+			<input type="text" name="career">	
+		</div>
+		<div id="career-box">
+			<div>
+				<input type="text" name="career">	<button type="button">-</button><br>
+			</div>
+		</div>
+		<div>
+			<button type="submit">등록</button>
+		</div>
+	</form>
+<script type="text/javascript">
+$(function() {
+	// 1. id="btn-add-field" 버튼에 이벤트 핸들러 등록하기
+	$("#btn-add-field").click(function() {
+		// 추가할 html 컨텐츠를 정의한다.
+		let content = `
+			<div>
+				<input type="text" name="career">	<button type="button">-</button><br>
+			</div>
+			`;
+		// html 컨텐츠가 추가될 부모 엘리먼트를 검색한다.
+		// 부모 엘리먼트가 포함된 jQuery집합 객체를 획득하고, append(컨텐츠)메소드를 이용해서
+		// 지정된 컨텐츠를 자식 컨텐츠로 추가한다.
+		$("#career-box").append(content); 
+	})
+	
+	// 2. 삭제버튼에 이벤트 핸들러 등록하기
+	$("#career-box").on("click", "button", function() {
+        // this는 클릭한 버튼이다.
+        // 클릭한 버튼을 포함하고 있는 div(button의 부모 엘리먼트다.)를 삭제한다.
+		$(this).parent().remove();
+	})
+})
+
+</script>
+</body>
+</html>
