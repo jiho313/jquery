@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+</head>
+<body>
+	<h1>이벤트 처리</h1>
+	
+	<h3>이벤트 등록 및 이벤트 핸들러 제거</h3>
+	<button id="btn-1">버튼1</button>
+	<button id="btn-add">이벤트 핸들러 등록</button>
+	<button id="btn-remove" disabled>이벤트 핸들러 제거</button>
+	
+	<h3>mouseenter와 mouseleave 이벤트 다루기</h3>
+	<div id="box-1">
+		<img src="/jquery/resources/images/2.jpg" width="234" height="287">
+	</div>
+	<div id="box-2">
+		<img src="/jquery/resources/images/2.jpg" width="58" height="71"  style="opacity: 0.5;">
+		<img src="/jquery/resources/images/3.jpg" width="58" height="71"  style="opacity: 0.5;">
+		<img src="/jquery/resources/images/4.jpg" width="58" height="71"  style="opacity: 0.5;">
+	</div>
+	
+<script type="text/javascript">
+$(function() {
+	
+	/*
+		엘리먼트의 속성값 처리
+				.attr("속성명")
+					지정된 속성명의 속성값을 조회한다.
+				.attr("속성명", "속성값")
+					지정된 속성명의 속성값을 추가한다.
+					지정된 속성명으로 속성값이 이미 존재하면 값을 변경한다.
+		
+	*/
+	$("#box-2 img").mouseenter(function() {
+		$(this).css("opacity", 1);
+		
+		// 마우스포인터가 옮겨가 썸네일 이미지 엘리먼트의 src 속성값을 조회한다.
+		let imagepath = $(this).attr("src");
+		// 위에서 조회한 이미지 경로를 큰 이미지로 표현하는 src의 속성값으로 지정한다.
+		$("#box-1 img").attr("src", imagepath);
+	})
+	
+	$("#box-2 img").mouseleave(function() {
+		$(this).css("opacity", 0.5);
+	})
+	
+	// id="btn-add"버튼을 클릭하면 id="btn-1"에 이벤트 핸들러를 등록시킨다.
+	$("#btn-add").click(function() {
+		$(this).prop("disabled", true);
+		$("#btn-remove").prop("disabled", false);
+		
+		$("#btn-1").on("click", function() {
+			console.log("버튼이 클릭되었다.");
+		})
+	});	
+	
+	// id="btn-remove"버튼을 클릭하면 id="btn-1"에 이벤트 핸들러를 제거시킨다.
+	$("#btn-remove").click(function() {
+		$(this).prop("disabled", true);
+		$("#btn-add").prop("disabled", false);
+		
+		$("#btn-1").off("click");
+	});	
+})
+
+</script>
+</body>
+</html>

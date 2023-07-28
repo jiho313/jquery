@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+
+</head>
+<body>
+	<h1>선택자 연습</h1>
+	
+	<form id="form-register" method="post" action="register">
+		<div>
+			<label>아이디</label>
+			<input type="text" name="id" />
+		</div>
+		<div>
+			<label>비밀번호</label>
+			<input type="password" name="pwd" />
+		</div>
+		<div>
+			<label>이름</label>
+			<input type="text" name="name" />
+		</div>
+		<div>
+			<label>보유기술</label>
+			<input type="checkbox" name="skill" value="java"/> 자바
+			<input type="checkbox" name="skill" value="c"/> C
+			<input type="checkbox" name="skill" value="python"/> 파이썬
+			<input type="checkbox" name="skill" value="db"/> 데이터베이스
+			<input type="checkbox" name="skill" value="aws"/> 아마존웹서비스
+			<input type="checkbox" name="skill" value="cloud"/> 클라우드
+		</div>
+		<div>
+			<button>등록</button>
+		</div>
+	</form>
+   
+<script type="text/javascript">
+$(function() {
+	// jQuery의 이벤트처리
+	/* 
+		// 선택자로 선택된 모든 엘리먼트에서 지정한 이벤트가 발생했을 때 실행할 이벤트 핸들러 함수를 등록시킨다.
+		$("선택자").on("이벤트명", 이벤트핸들러함수)
+		* 이벤트 핸들러 함수가 실행되는 것이 아니다.
+		* on()메소드가 실행된 것이다.
+		* on()메소드는 $()함수로 선택된(검색된) 모든 엘리먼트에 지정된 이벤트 핸들러 함수를 등록시킨다.
+		* 이벤트 핸들러 함수는 해당 엘리먼트에서 이벤트가 발생할 때 비로소 실행된다.
+		
+		* 이벤트 핸들러 함수의 반환값 
+		* 	이벤트 핸들러 함수는 true 혹은 false값을 반환할 수 있다.
+		*	true를 반환하면 해당 이벤트에 대한 엘리먼트의 기본동작이 실행된다.
+		*	false를 반환하면 해당 이벤트에 대한 엘리먼트의 정해진 기본동작이 실행되지 않는다.
+		*	(event.preventDefault()와 같은 효과를 발휘한다.)
+		*	false를 반환하면 해당 이벤트가 부모 엘리먼트로 전파되지 않는다.(이벤트 버블링 중지)
+		*	(event.stopPropagation()과 같은 효과를 발휘한다.)
+	*/
+	
+	// id="form-register"인 엘리먼트에서 onsubmit 이벤트가 발생하면 실행될 이벤트 핸들러 함수를 등록함
+	// 폼에서 onsubmit 이벤트가 발생하면 폼 입력값이 서버로 제출된다.
+	// 이 이벤트 핸들러 함수안에서 폼 입력값의 유효성을 체크하고, 입력값이 유효하지 않으면 서버로 제출되지 않게한다.
+	$("#form-register").on("submit", function(event) {
+		let idValue = $("input[name=id]").val();
+		if (idValue === "") {
+			alert("아이디는 필수 입력값입니다.");
+			return false;
+		}
+		
+		let pwdValue = $("input[name=pwd]").val();
+		if (pwdValue === "") {
+			alert("비밀번호는 필수 입력값입니다.");
+			return false;
+		}
+		
+		let nameValue = $("input[name=name]").val();
+		if (nameValue === "") {
+			alert("이름은 필수 입력값입니다.");
+			return false;
+		}
+		
+		let checkedSkills = $("input[name=skill]:checked");
+		if (checkedSkills.length === 0) {
+			alert("보유기술은 반드시 1개 이상 선택하세요.");
+			return false;
+		}
+		
+		return true;
+	})
+})
+</script>
+</body>
+</html>

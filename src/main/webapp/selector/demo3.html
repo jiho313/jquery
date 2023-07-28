@@ -34,21 +34,28 @@
 	</div>
 <script type="text/javascript">
 $(function() {
-	// box-1의 첫번째 p의 색을 변경하자
-	$('#box-1 p:first').css('color', 'red');
+	// box-1의 첫번째 p의 색을 변경하자 하나
+	$("#box-1 p:first").css("color", "red");
 	
 	// p:first-child 모든 첫째 p엘리먼트 선택
-	$('#box-1 p:first-child').css('color', 'red');
+	$("#box-1 p:first-child").css("color", "red");
 	
 	// p:nth-child(1) 모든 첫번째 p엘리먼트 선택
-	$('#box-1 p:nth-child(1)').css('color', 'red');
+	$("#box-1 p:nth-child(1)").css("color", "red");
 
-	// p:eq(0) 인덱스 번호로 첫번째 p엘리먼트 선택
-	$('#box-1 p:eq(0)').css('color', 'red');
+	// p:eq(0) 인덱스 번호로 첫번째 p엘리먼트 선택 하나
+	$("#box-1 p:eq(0)").css("color", "red");
 	
 	// box-2의 두번째 p의 색을 변경하자
+	$("#box-2 p:eq(1)").css("color", "red").text("내용을 바꾸자~");
 	
 	// box-3의 맨 마지막번째 p의 내용을 바꾸자
+	$("#box-3 p:last").text("내용을 바꾸자!");
+	
+	// p:last-child 모든 마지막 번째 p의 색을 변경하자
+	$("#box-3 p:last-child").text("내용을 바꾸자!");
+	
+	
 })
 </script>
 </body>

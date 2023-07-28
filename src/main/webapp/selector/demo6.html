@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+
+</head>
+<body>
+	<h1>선택자 연습</h1>
+	
+	<form id="form-register" method="post" action="register">
+		<div>
+			<label>아이디</label><br>
+			<input type="text" name="id" />
+		</div>
+		<div>
+			<label>비밀번호</label><br>
+			<input type="password" name="pwd" />
+		</div>
+		<div>
+			<label>이름</label><br>
+			<input type="text" name="name" />
+		</div>
+		<div>
+			<label>근무지</label><br>
+			<select name="city">
+				<option value="seoul"> 서울</option>
+				<option value="kyoungi" selected> 경기도</option>
+				<option value="kangwon"> 강원도</option>
+				<option value="chungchung"> 충청도</option>
+				<option value="jeonra"> 전라도</option>
+				<option value="kyoungsang"> 경상도</option>
+			</select>
+		</div>
+		<div>
+			<label>보유기술</label>
+			<input type="checkbox" name="skill" value="java" checked/> 자바
+			<input type="checkbox" name="skill" value="c" checked/> C
+			<input type="checkbox" name="skill" value="python"/> 파이썬
+			<input type="checkbox" name="skill" value="db"/> 데이터베이스
+			<input type="checkbox" name="skill" value="aws"/> 아마존웹서비스
+			<input type="checkbox" name="skill" value="cloud"/> 클라우드
+		</div>
+		<div>
+			<label>관심분야</label>
+			<input type="checkbox" name="favorite" value="game" checked/> 게임
+			<input type="checkbox" name="favorite" value="sing" checked/> 노래
+			<input type="checkbox" name="favorite" value="eat"/> 먹방
+			<input type="checkbox" name="favorite" value="drawing"/> 그림
+		</div>
+		<div>
+			<label>내용</label>
+			<textarea rows="5" name="content"></textarea>
+		</div>
+		<div>
+			<button>등록</button>
+		</div>
+	</form>
+   
+<script type="text/javascript">
+$(function() {
+	
+	// 아이디 입력필드 조회하기
+	$("input[name=id]");		// input태그 중에서 name속성의 속성값이 id인 엘리먼트 객체
+	$(":input[name=id]");		// 모든 입력요소 중에서 name속성의 속성값이 id인 엘리먼트 객체
+	$(":text[name=id]");		// 일반(text) 입력요소 중에서 name속성의 속성값이 id인 엘리먼트 객체
+	
+	// 비밀번호 입력필드 조회하기
+	$("input[name=pwd]");
+	$(":input[name=pwd]");
+	$(":password[name=pwd]");
+	
+	// 이름 입력필드 조회하기
+	$("input[name=name]");
+	$(":input[name=name]");
+	$(":text[name=name]");
+	
+	// 모든 체크박스 조회하기
+	$(":checkbox");
+	
+	// 모든 체크박스 체크하기
+	$(":checkbox").prop("checked", true);
+	
+	// 모든 체크박스 해제하기
+	$(":checkbox").prop("checked", false);
+	
+	// 선택된 체크박스 조회하기
+	$(":checkbox:checked")
+	
+	// 관심분야 체크박스 전부 조회하기
+	$(":checkbox[name=favorite]");
+	
+	// 관심분야 체크박스 중에서 선택된 체크박스 조회하기
+	$(":checkbox[name=favorite]:checked");
+	
+	// 관심분야 체크박스 중에서 선택된 체크박스의 갯수 조회하기
+	$(":checkbox[name=favorite]:checked").length;
+	
+	// 관심분야 체크박스 전부 체크하기
+	$(":checkbox[name=favorite]").prop("checked", true);
+	
+	// 관심분야 체크박스 전부 해제하기
+	$(":checkbox[name=favorite]").prop("checked", false);
+	
+	
+	
+	// 태그명 선택자
+	$("input");			// 태그명이 input인 엘리먼트를 선택한다.
+	$("select");		// 태그명이 select인 엘리먼트를 선택한다.
+	$("textarea");		// 태그명이 textarea인 엘리먼트를 선택한다.
+	$("button");		// 태그명이 button인 엘리먼트를 선택한다.
+	
+	// 폼 필터 선택자
+	$(":input")			// 모든 폼 입력요소를 선택한다. (input, select, textarea, button)
+						// $("input, select, textarea, button")와 동일하다.
+						
+	$(":text")			// 일반 입력필드 입력요소를 선택한다.
+						// $("input[type=text]")와 동일하다.
+						
+	$(":password")		// 비밀번호 입력필드 입력요소를 선택한다.
+						// $("input[type=password]")와 동일하다.
+	
+	$(":radio")			// 라디오버튼 입력요소를 선택한다.
+						// $("input[type=radio]")와 동일하다.
+	
+	$(":checkbox")		// 체크박스 입력요소를 선택한다.
+						// $("input[type=checkbox]")와 동일하다.
+						
+	$(":file")			
+	$(":submit")
+	$(":reset")
+	$(":enabled")
+	$(":disabled")
+	$(":checked")		// 라디오, 체크박스, 셀렉트-옵션이 체크된 것만 검색한다.
+	$(":selected")
+})
+</script>
+</body>
+</html>
